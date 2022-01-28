@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloc</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+<body>  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/salles">Gestion des salles</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/salles">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/blocs">Blocs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/occupations">Occupation</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/statistiques">Statistique</a>
+        </li>
+          </ul>
+    </div>
+  </div>
+</nav>
+{{#if alert}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+   {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+<div class="container pt-5 pb-5">
+   <form  method="POST" action="/insertoccupation" novalidate>
+     <div class="col-md-6">
+  <label  class="form-label">salle</label>
+  <select class="form-select" name = "salle">
+  {{#each salles}}
+  <option value="{{this.name}}">{{this.name}}</option>
+  {{/each}}
+ </select>
+ </div>
+    <div class="col-md-6">
+  <label  class="form-label">séance</label>
+  <select class="form-select" name = "time">
+  <option value="8h30->10h20">8h30->10h20</option>
+  <option value="10h30->12h20">10h30->12h20</option>
+  <option value="13h30->15h20">13h30->15h20</option>
+  <option value="15h30->17h20">15h30->17h20</option>
+</select>
+  </div>
+  <div class="col-2">
+    <button type="submit" class="btn col-12 btn-primary">Submit</button>
+  </div>
+  </form>
+</div>    
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+const express = require('express');
+const router = express.Router();
+const { insertsalle, updatesalle, apioccupations, login, addoccupation, statistiques, deletesalle, deleteoccupation, insertoccupation, apisalles, apiblocs, insertbloc, showsalles, addbloc, searchsalle, addsalle, editsalle, showblocs, editbloc, updatebloc, deletebloc, showoccupation } = require('../controllers/salleController.js');
+router.get('/addsalle', addsalle);
+router.get('/', login);
+router.get('/addbloc', addbloc);
+router.get('/addoccupation', addoccupation);
+router.post('/insertsalle', insertsalle);
+router.post('/insertoccupation', insertoccupation);
+router.post('/insertbloc', insertbloc);
+router.post('/updatesalle/:id', updatesalle);
+router.post('/updatebloc/:id', updatebloc);
+router.get('/deletesalle/:id', deletesalle);
+router.get('/deletebloc/:id', deletebloc);
+router.get('/deleteoccupation/:id', deleteoccupation);
+router.get('/salles', showsalles);
+router.get('/api/salles', apisalles);
+router.post('/find', searchsalle);
+router.get('/editsalle/:id', editsalle);
+router.get('/editbloc/:id', editbloc);
+router.get('/blocs', showblocs);
+router.get('/api/blocs', apiblocs);
+router.get('/api/occupations', apioccupations);
+router.get('/occupations', showoccupation);
+router.get('/statistiques', statistiques);
+module.exports = router
